@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for the Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('item.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #9c13dc30;
+            border: 1px solid green;
+            border: chartreuse;
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            color: #ae0cedf7;
+            font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 50;
+            line-height: 6vw;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            color: #e01bb5;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #1dd014;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: rgb(90, 9, 172);
+            border: none;
+            border-radius: 4px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .terms {
+            font-size: 12px;
+            color: #777;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Join the Adventure!</h2>
+        <form id="signupForm" method="get" action="/signupSubmit">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="signupSubmit">Sign Up</button>
+            </div>
+        </form>
+        <p class="terms">
+            By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </p>
+        <p class="terms">
+            create an account <a href="login.html">login  here</a>.
+        </p>
+    </div>
+</body>
+</html>
+<script>
+    
+    document.getElementById("signupForm").addEventListener("submit", function (event) {
+        event.preventDefault(); 
+
+
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match. Please re-enter them.");
+            return;
+        }
+
+        if (username.trim() === "" || email.trim() === "" || password.trim() === "") {
+            alert("Please fill in all the required fields.");
+            return;
+        }
+
+        alert("Welcome, " + username + "! You've successfully signed up for the adventure.");
+    });
+</script>
